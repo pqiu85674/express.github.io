@@ -1,16 +1,19 @@
 var express = require("express");
 var router = express.Router();
+
 let Users = [];
 
+const response = new Response();
+
 /* GET home page. */
-router.get("/", function(req, res, next) {
+/* router.get("/", function(req, res, next) {
   // res.render("index", { title: "Express" });
   res.send({
     status: "true",
     message: "message",
     Users: Users
   });
-});
+}); */
 //POST 動作
 router.post("/signup", function(req, res) {
   if (Users.filter(item => item.email === req.body.email).length === 0) {
@@ -18,16 +21,18 @@ router.post("/signup", function(req, res) {
       email: req.body.email,
       password: req.body.password
     });
-    res.send({
+    /*     res.send({
       status: true,
       message: "成功",
       Users: Users
-    });
+    }); */
+    res.send((response.message = "成功註冊帳號"));
   } else {
-    res.send({
+    /*     res.send({
       status: false,
       message: "已經有相同帳號"
-    });
+    }); */
+    res.send((response.message = "無法註冊帳號"));
   }
 });
 
@@ -38,15 +43,17 @@ router.post("/signin", function(req, res) {
         item.email === req.body.email && item.password === req.body.password
     ).length === 1
   ) {
-    res.send({
+    /*     res.send({
       status: "true",
       message: `哈囉 ${req.body.email} ，成功登入`
-    });
+    }); */
+    res.send((response.message = "成功登入"));
   } else {
-    res.send({
+    /*     res.send({
       status: "false",
       message: "無法登入"
-    });
+    }); */
+    res.send((response.message = "無法登入"));
   }
 });
 
