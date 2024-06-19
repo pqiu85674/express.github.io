@@ -26,13 +26,15 @@ router.post("/signup", function(req, res) {
       message: "成功",
       Users: Users
     }); */
-    res.send((response.message = "成功註冊帳號"));
+    response.message = "成功登入";
+    res.send(response);
   } else {
     /*     res.send({
       status: false,
       message: "已經有相同帳號"
     }); */
-    res.send((response.message = "無法註冊帳號"));
+    response.message = "成功登入";
+    res.send(response);
   }
 });
 
@@ -47,13 +49,15 @@ router.post("/signin", function(req, res) {
       status: "true",
       message: `哈囉 ${req.body.email} ，成功登入`
     }); */
-    res.send((response.message = "成功登入"));
+    response.message = "成功登入";
+    res.send(response);
   } else {
     /*     res.send({
       status: "false",
       message: "無法登入"
     }); */
-    res.send((response.message = "無法登入"));
+    response.message = "無法登入";
+    res.send(response);
   }
 });
 
