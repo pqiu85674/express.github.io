@@ -1,6 +1,15 @@
 var express = require("express");
+var cors = require("cors");
+
 var router = express.Router();
 
+// 設置 CORS 選項，允許來自特定來源的請求
+const corsOptions = {
+  origin: "*", // 允許的來源
+  methods: "GET,POST", // 允許的 HTTP 方法
+  allowedHeaders: ["Content-Type"] // 允許的請求頭部
+};
+router.use(cors(corsOptions));
 let Users = [];
 
 const response = new Response();
