@@ -26,14 +26,14 @@ router.post("/signup", function(req, res) {
       message: "成功",
       Users: Users
     }); */
-    response.message = "成功登入";
+    response.message = "註冊帳號成功";
     res.send(response);
   } else {
     /*     res.send({
       status: false,
       message: "已經有相同帳號"
     }); */
-    response.message = "成功登入";
+    response.message = "無法註冊帳號";
     res.send(response);
   }
 });
