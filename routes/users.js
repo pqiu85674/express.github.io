@@ -58,7 +58,6 @@ router.post("/signup", function(req, res) {
               return res.send(response);
             }
             response.message = "註冊成功";
-
             res.send(response);
           });
         }
